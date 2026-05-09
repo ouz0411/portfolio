@@ -1,3 +1,10 @@
+<?php
+require_once "includes/db.php";
+
+$stmt = $pdo->query("SELECT * FROM projects ORDER BY id DESC");
+$projects = $stmt->fetchAll();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,156 +14,131 @@
 
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
+
 <body>
 
-    <!-- HEADER -->
-    <header>
-        <nav class="navbar">
+<!-- HEADER -->
+<header>
+    <nav class="navbar">
 
-            <div class="logo">
-                OĞUZ KAĞAN
-            </div>
+        <div class="logo">OĞUZ KAĞAN</div>
 
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
 
-            <button id="darkModeToggle">
-                🌙
-            </button>
+        <button id="darkModeToggle">🌙</button>
 
-        </nav>
-    </header>
+    </nav>
+</header>
 
-    <!-- HERO -->
-    <section class="hero" id="home">
+<!-- HERO -->
+<section class="hero" id="home">
 
-        <div class="hero-content">
-
-            <h1>
-                Full Stack Developer
-            </h1>
-
-            <p>
-                I create modern, responsive and dynamic full-stack web applications using HTML, CSS, JavaScript, PHP and MySQL.
-            </p>
-
-            <a href="#projects" class="btn">
-                View Projects
-            </a>
-
-        </div>
-
-    </section>
-
-    <!-- ABOUT -->
-    <section class="about" id="about">
-
-        <h2>About Me</h2>
+    <div class="hero-content">
+        <h1>Full Stack Developer</h1>
 
         <p>
-            I am a passionate software developer focused on building modern web applications and improving user experiences with clean and efficient code.
+            I create modern, responsive and dynamic full-stack web applications using HTML, CSS, JavaScript, PHP and MySQL.
         </p>
 
-    </section>
+        <a href="#projects" class="btn">View Projects</a>
+    </div>
 
-    <!-- SKILLS -->
-    <section class="skills" id="skills">
+</section>
 
-        <h2>Skills</h2>
+<!-- ABOUT -->
+<section class="about" id="about">
 
-        <div class="skills-container">
+    <h2>About Me</h2>
 
-            <div class="skill-card">
-                HTML5
-            </div>
+    <p>
+        I am a passionate software developer focused on building modern web applications and improving user experience with clean code.
+    </p>
 
-            <div class="skill-card">
-                CSS3
-            </div>
+</section>
 
-            <div class="skill-card">
-                JavaScript
-            </div>
+<!-- SKILLS -->
+<section class="skills" id="skills">
 
-            <div class="skill-card">
-                PHP
-            </div>
+    <h2>Skills</h2>
 
-            <div class="skill-card">
-                MySQL
-            </div>
+    <div class="skills-container">
+        <div class="skill-card">HTML5</div>
+        <div class="skill-card">CSS3</div>
+        <div class="skill-card">JavaScript</div>
+        <div class="skill-card">PHP</div>
+        <div class="skill-card">MySQL</div>
+    </div>
 
-        </div>
+</section>
 
-    </section>
+<!-- PROJECTS -->
+<section class="projects" id="projects">
 
-    <!-- PROJECTS -->
-    <section class="projects" id="projects">
+    <h2>My Projects</h2>
 
-        <h2>Projects</h2>
+    <div class="projects-container">
 
-        <div class="project-container">
+        <?php if (!empty($projects)): ?>
 
-            <article class="project-card">
+            <?php foreach ($projects as $project): ?>
+                <div class="project-card">
 
-                <h3>Cargo Tracking System</h3>
+                    <h3>
+                        <?= htmlspecialchars($project["title"]) ?>
+                    </h3>
 
-                <p>
-                    Full-stack cargo tracking application developed with PHP and MySQL.
-                </p>
+                    <p>
+                        <?= htmlspecialchars($project["description"]) ?>
+                    </p>
 
-            </article>
+                    <?php if (!empty($project["github_link"])): ?>
+                        <a href="<?= htmlspecialchars($project["github_link"]) ?>" target="_blank">
+                            View Project →
+                        </a>
+                    <?php endif; ?>
 
-            <article class="project-card">
+                </div>
+            <?php endforeach; ?>
 
-                <h3>Task Management System</h3>
+        <?php else: ?>
+            <p>No projects found.</p>
+        <?php endif; ?>
 
-                <p>
-                    Dynamic task management application with authentication system.
-                </p>
+    </div>
 
-            </article>
+</section>
 
-        </div>
+<!-- CONTACT -->
+<section class="contact" id="contact">
 
-    </section>
+    <h2>Contact Me</h2>
 
-    <!-- CONTACT -->
-    <section class="contact" id="contact">
+    <form id="contactForm" action="send_message.php" method="POST">
 
-        <h2>Contact Me</h2>
+        <input type="text" name="name" placeholder="Your Name" required>
 
-        <form id="contactForm">
+        <input type="email" name="email" placeholder="Your Email" required>
 
-            <input type="text" id="name" placeholder="Your Name">
+        <textarea name="message" placeholder="Your Message" required></textarea>
 
-            <input type="email" id="email" placeholder="Your Email">
+        <button type="submit">Send Message</button>
 
-            <textarea id="message" placeholder="Your Message"></textarea>
+    </form>
 
-            <button type="submit">
-                Send Message
-            </button>
+</section>
 
-        </form>
+<!-- FOOTER -->
+<footer>
+    <p>© 2026 Oğuz Kağan Portfolio</p>
+</footer>
 
-    </section>
-
-    <!-- FOOTER -->
-    <footer>
-
-        <p>
-            © 2026 Oğuz Kağan Portfolio
-        </p>
-
-    </footer>
-
-    <script src="assets/js/app.js"></script>
+<script src="assets/js/app.js"></script>
 
 </body>
 </html>

@@ -1,0 +1,155 @@
+
+/* GENERAL */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f172a;
+    color: #e2e8f0;
+}
+
+/* CONTAINER */
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+/* HEADER */
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+/* BACK LINK */
+a {
+    color: #38bdf8;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* TABLE */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: #1e293b;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 14px;
+    text-align: left;
+    border-bottom: 1px solid #334155;
+}
+
+th {
+    background: #111827;
+    color: #38bdf8;
+    font-weight: bold;
+}
+
+tr:hover {
+    background: #273449;
+}
+
+/* BADGE STYLE (isteğe bağlı future use) */
+.badge {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    background: #38bdf8;
+    color: black;
+}
+
+/* CARD LOOK (dashboard için) */
+.card {
+    background: #1e293b;
+    padding: 20px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+/* BUTTON STYLE */
+.btn {
+    display: inline-block;
+    padding: 8px 14px;
+    background: #38bdf8;
+    color: black;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn:hover {
+    opacity: 0.8;
+}
+/* LOGIN PAGE */
+* {
+    box-sizing: border-box;
+}
+
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #0f172a;
+    margin: 0;
+}
+
+/* LOGIN CARD */
+.login-box {
+    width: 360px;
+    background: #1e293b;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    text-align: center;
+}
+
+/* TITLE */
+.login-box h2 {
+    margin-bottom: 25px;
+    color: #38bdf8;
+}
+
+/* FORM */
+.login-box form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* INPUTS */
+.login-box input {
+    width: 100%;
+    padding: 12px 14px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 14px;
+}
+
+/* BUTTON */
+.login-box button {
+    width: 100%;
+    padding: 12px 14px;
+    background: #38bdf8;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    box-sizing: border-box;
+    transition: 0.3s;
+}
+
+/* ERROR */
+.error {
+    color: #ff4d4d;
+    margin-bottom: 10px;
+}
