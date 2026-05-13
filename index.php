@@ -3,6 +3,8 @@ require_once "includes/db.php";
 
 $stmt = $pdo->query("SELECT * FROM projects ORDER BY id DESC");
 $projects = $stmt->fetchAll();
+$skillStmt = $pdo->query("SELECT * FROM skills ORDER BY id DESC");
+$skills = $skillStmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +23,9 @@ $projects = $stmt->fetchAll();
 <header>
     <nav class="navbar">
 
-        <div class="logo">OĞUZ KAĞAN</div>
+        <a href="#" class="logo-container">
+            <img src="assets/images/profile.png" alt="Logo" class="nav-avatar">
+        </a>
 
         <ul class="nav-links">
             <li><a href="#home">Home</a></li>
@@ -39,27 +43,80 @@ $projects = $stmt->fetchAll();
 <!-- HERO -->
 <section class="hero" id="home">
 
-    <div class="hero-content">
-        <h1>Full Stack Developer</h1>
+    <div class="hero-overlay"></div>
 
-        <p>
-            I create modern, responsive and dynamic full-stack web applications using HTML, CSS, JavaScript, PHP and MySQL.
+    <div class="hero-content">
+    <div class="hero-image">
+
+        <img src="assets/images/profile.png" alt="Profile">
+
+    </div>
+
+        <p class="hero-tag">
+            👋 Hello, I'm
         </p>
 
-        <a href="#projects" class="btn">View Projects</a>
+        <h1>
+            Oğuz Kağan Kabadayı
+        </h1>
+
+        <h2>
+            Full Stack Developer
+        </h2>
+
+        <p class="hero-description">
+            I build modern, responsive and dynamic full-stack web applications
+            using PHP, MySQL, JavaScript and modern web technologies.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#projects" class="btn">
+                View Projects
+            </a>
+
+            <a href="#contact" class="btn btn-outline">
+                Contact Me
+            </a>
+
+        </div>
+
     </div>
 
 </section>
 
 <!-- ABOUT -->
 <section class="about" id="about">
-
     <h2>About Me</h2>
-
     <p>
-        I am a passionate software developer focused on building modern web applications and improving user experience with clean code.
+       I am a 3rd-year Software Engineering student at Haliç University who is passionate about web development and modern technologies. I enjoy building responsive and user-friendly web applications while continuously improving my technical and problem-solving skills through real-world projects and hands-on experience.
     </p>
 
+    <div class="experience-container">
+        <?php
+        $experiences = [
+            [
+                "company" => "BETİLSOFT",
+                "role" => "Software Development Intern (2025)",
+                "desc" => "Worked on full-stack web development projects using Angular, ASP.NET Web API and MySQL."
+            ],
+            [
+             "company" => "FORMEX",
+             "role" => "part time reportman (2024-2025)",
+             "desc" => "Responsible for reporting and organizing delivery notes and shipment documents received from different companies while ensuring accurate data tracking and workflow management"
+            ]
+
+        ];
+
+        foreach ($experiences as $exp) {
+            echo '<div class="experience-card">';
+            echo '    <h3>' . $exp['company'] . '</h3>';
+            echo '    <span>' . $exp['role'] . '</span>';
+            echo '    <p>' . $exp['desc'] . '</p>';
+            echo '</div>';
+        }
+        ?>
+    </div>
 </section>
 
 <!-- SKILLS -->
@@ -68,12 +125,18 @@ $projects = $stmt->fetchAll();
     <h2>Skills</h2>
 
     <div class="skills-container">
-        <div class="skill-card">HTML5</div>
-        <div class="skill-card">CSS3</div>
-        <div class="skill-card">JavaScript</div>
-        <div class="skill-card">PHP</div>
-        <div class="skill-card">MySQL</div>
-    </div>
+
+    <?php foreach($skills as $skill): ?>
+
+        <div class="skill-card">
+
+            <?= htmlspecialchars($skill["name"]) ?>
+
+        </div>
+
+    <?php endforeach; ?>
+
+</div>
 
 </section>
 
@@ -119,17 +182,29 @@ $projects = $stmt->fetchAll();
 
     <h2>Contact Me</h2>
 
-    <form id="contactForm" action="send_message.php" method="POST">
+    <form id="contactForm">
 
-        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="text"
+               name="name"
+               placeholder="Your Name"
+               required>
 
-        <input type="email" name="email" placeholder="Your Email" required>
+        <input type="email"
+               name="email"
+               placeholder="Your Email"
+               required>
 
-        <textarea name="message" placeholder="Your Message" required></textarea>
+        <textarea name="message"
+                  placeholder="Your Message"
+                  required></textarea>
 
-        <button type="submit">Send Message</button>
+        <button type="submit">
+            Send Message
+        </button>
 
     </form>
+
+    <p id="formMessage"></p>
 
 </section>
 
