@@ -194,6 +194,7 @@ body::before {
 
     background: linear-gradient(to right, #38bdf8, #0ea5e9);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
@@ -766,51 +767,4 @@ body.light-mode {
 /* Eğer outline (çerçeveli) butonun varsa onun yazısı mavi kalmalı */
 .light-mode .btn-outline {
     color: #38bdf8 !important;
-}
-/* =========================
-   EXPERIENCE CARDS (Güncellenmiş)
-========================= */
-
-.experience-container {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
-
-.experience-card {
-    background: #1e293b; /* Arka plan rengi */
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-    padding: 25px;
-    width: 320px;
-    text-align: left; /* Yazıları sola yasladık, kartta daha iyi durur */
-    transition: 0.3s;
-}
-
-.experience-card:hover {
-    transform: translateY(-10px);
-    border-color: #38bdf8;
-    box-shadow: 0 10px 25px rgba(56, 189, 248, 0.2);
-}
-
-.experience-card h3 {
-    color: #38bdf8;
-    margin-bottom: 8px;
-    font-size: 1.2rem;
-}
-
-.experience-card span {
-    color: #94a3b8;
-    display: block;
-    margin-bottom: 12px;
-    font-size: 0.85rem;
-    font-weight: bold;
-}
-
-.experience-card p {
-    color: #cbd5e1;
-    font-size: 0.9rem;
-    line-height: 1.6;
 }
