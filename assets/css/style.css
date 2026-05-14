@@ -84,8 +84,11 @@ body::before {
     width: 45px;          /* Navbar yüksekliğine göre ideal boyut */
     height: 45px;
     object-fit: cover;    /* Fotoğrafın yamulmasını önler */
+    object-position: center; /* Fotoğrafı ortalar */
     border-radius: 50%;   /* Tam yuvarlak yapar */
     border: 2px solid #38bdf8; /* Logondaki mavi tonla uyumlu çerçeve */
+    filter: brightness(1.1) contrast(1.15) saturate(1.1); /* Daha belirgin netlik ve canlılık */
+    image-rendering: -webkit-optimize-contrast; 
     transition: 0.3s ease;
 }
 
@@ -182,9 +185,12 @@ body::before {
 }
 
 .hero-content h1 {
-    font-size: 90px;
+    font-size: 75px;
     font-weight: 800;
-    margin-bottom: 10px;
+    line-height: 1.3;
+    letter-spacing: -2px;
+    margin-bottom: 5px;
+    padding-bottom: 10px;
 
     background: linear-gradient(to right, #38bdf8, #0ea5e9);
     -webkit-background-clip: text;
@@ -277,11 +283,12 @@ body::before {
 @media(max-width:768px){
 
     .hero-content h1 {
-        font-size: 56px;
+        font-size: 42px;
+        letter-spacing: -1px;
     }
 
     .hero-content h2 {
-        font-size: 28px;
+        font-size: 24px;
     }
 
     .hero-description {
@@ -302,9 +309,12 @@ body::before {
     min-width: 170px; /* Büzülmeyi engeller */
     min-height: 170px;
     object-fit: cover;
+    object-position: center; /* Fotoğrafı ortalar */
     border-radius: 50%;
     border: 4px solid #38bdf8;
     box-shadow: 0 0 40px rgba(56,189,248,0.5);
+    filter: brightness(1.1) contrast(1.2) saturate(1.1); /* Agresif netlik ve canlılık */
+    image-rendering: -webkit-optimize-contrast;
     transition: 0.4s ease;
     flex-shrink: 0; /* Flexbox'ın fotoğrafı ezmesini önler */
 }
@@ -669,6 +679,11 @@ body.light-mode {
     backdrop-filter: blur(15px);
 }
 
+.light-mode #darkModeToggle {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
 .light-mode .nav-links a {
     color: #1e293b;
 }
@@ -686,21 +701,38 @@ body.light-mode {
 }
 
 .light-mode .hero-content h2, 
-.light-mode .hero-description {
+.light-mode .hero-description,
+.light-mode #about > p {
     color: #334155;
 }
 
-/* Kartlar (Skills & Projects) */
+/* Kartlar (Skills & Projects & Experiences) */
 .light-mode .skill-card, 
-.light-mode .project-card {
+.light-mode .project-card,
+.light-mode .experience-card {
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.05);
     color: #1e293b;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
+.light-mode .experience-card h3,
 .light-mode .project-card h3 {
     color: #0284c7; /* Daha koyu bir mavi */
+}
+
+.light-mode .experience-card p,
+.light-mode .experience-card span {
+    color: #334155;
+}
+
+/* Kart Hover Efektleri (Gündüz Modu) */
+.light-mode .skill-card:hover, 
+.light-mode .project-card:hover,
+.light-mode .experience-card:hover {
+    box-shadow: 0 15px 35px rgba(56, 189, 248, 0.3); /* Gölgeyi gündüz modunda daha belirgin yaptık */
+    border-color: #38bdf8;
+    background: #ffffff;
 }
 
 /* Bölüm Başlıkları */

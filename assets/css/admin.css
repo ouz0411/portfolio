@@ -90,8 +90,8 @@ body {
 }
 
 /* YAZI ALANLARI (BÜYÜTÜLDÜ) */
-.add-project-card input, 
-.add-project-card textarea {
+.card input, 
+.card textarea {
     width: 100% !important;
     padding: 15px 18px !important;
     background: #0f172a !important;
@@ -103,14 +103,14 @@ body {
     transition: 0.3s;
 }
 
-.add-project-card input:focus, 
-.add-project-card textarea:focus {
+.card input:focus, 
+.card textarea:focus {
     border-color: #38bdf8 !important;
     box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
 }
 
-.add-project-card textarea {
-    min-height: 180px;
+.card textarea {
+    min-height: 120px;
     resize: vertical;
 }
 
@@ -368,4 +368,116 @@ body {
     border-radius:10px;
 
     font-weight:bold;
+}
+
+/* EXPERIENCE ADMIN LIST */
+.experience-item-admin {
+    position: relative;
+    margin-bottom: 15px;
+    padding: 20px;
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+}
+
+.experience-item-admin h4 {
+    color: #38bdf8;
+    margin: 0;
+    font-size: 18px;
+}
+
+.experience-item-admin p {
+    margin: 5px 0;
+}
+
+.experience-item-admin .btn-delete {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 5px 12px;
+    background: #ef4444;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.experience-item-admin .btn-delete:hover {
+    background: #dc2626;
+}
+
+/* =========================
+    LOGIN PAGE STYLES
+========================= */
+
+.login-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: radial-gradient(circle at top left, #1e293b, #0f172a);
+}
+
+.login-box {
+    background: #1e293b;
+    padding: 40px;
+    border-radius: 20px;
+    border: 1px solid #334155;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.login-box h2 {
+    color: #38bdf8;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    background: #0f172a;
+    border: 2px solid #334155;
+    border-radius: 10px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+}
+
+.login-box input:focus {
+    border-color: #38bdf8;
+    box-shadow: 0 0 10px rgba(56, 189, 248, 0.2);
+}
+
+.login-box button {
+    width: 100%;
+    padding: 15px;
+    background: #38bdf8;
+    color: #0f172a;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-box button:hover {
+    background: #7dd3fc;
+    transform: translateY(-2px);
+}
+
+.error {
+    background: rgba(239, 68, 68, 0.1);
+    color: #ef4444;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-weight: bold;
 }
